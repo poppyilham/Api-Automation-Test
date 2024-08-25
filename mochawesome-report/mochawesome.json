@@ -1,0 +1,255 @@
+{
+  "stats": {
+    "suites": 2,
+    "tests": 6,
+    "passes": 6,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-08-25T13:21:04.985Z",
+    "end": "2024-08-25T13:21:08.604Z",
+    "duration": 3619,
+    "testsRegistered": 8,
+    "passPercent": 75,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 2,
+    "hasSkipped": true
+  },
+  "results": [
+    {
+      "uuid": "96e064b0-7c44-4f43-b1de-4574fe532fd1",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [
+        {
+          "title": "Test - Delete list users",
+          "fullTitle": "Test - Delete list users",
+          "timedOut": false,
+          "duration": 0,
+          "state": null,
+          "speed": null,
+          "pass": false,
+          "fail": false,
+          "pending": false,
+          "context": null,
+          "code": "const response2 = await request2(BASE_URL2)\n    .delete(\"users/2\");\nconsole.log(response2.statusCode);\n// Ensure that the status code is 204 No Content (or the expected status)\nassert2.equal(response2.statusCode, 204);",
+          "err": {},
+          "uuid": "3cfd8619-18b5-4fc7-a4e3-79847aba039d",
+          "parentUUID": "96e064b0-7c44-4f43-b1de-4574fe532fd1",
+          "isHook": false,
+          "skipped": true
+        },
+        {
+          "title": "Test - Delete list users",
+          "fullTitle": "Test - Delete list users",
+          "timedOut": false,
+          "duration": 0,
+          "state": null,
+          "speed": null,
+          "pass": false,
+          "fail": false,
+          "pending": false,
+          "context": null,
+          "code": "const response2 = await request2(BASE_URL2)\n    .delete(\"users/2\");\nconsole.log(response2.statusCode);\nconsole.log(response2.body);\n// JSON Schema that expects a JSON response with a deletion message\nconst jsonSchema = {\n    \"$schema\": \"http://json-schema.org/draft-04/schema#\",\n    \"type\": \"object\",\n    \"properties\": {\n        \"message\": {\n            \"type\": \"string\"\n        },\n        \"deletedAt\": {\n            \"type\": \"string\",\n            \"format\": \"date-time\"\n        }\n    },\n    \"required\": [\n        \"message\",\n        \"deletedAt\"\n    ]\n};\nassert2.jsonSchema(response2.body, jsonSchema);",
+          "err": {},
+          "uuid": "08c037e3-144f-400c-80b1-9b0e0881d946",
+          "parentUUID": "96e064b0-7c44-4f43-b1de-4574fe532fd1",
+          "isHook": false,
+          "skipped": true
+        }
+      ],
+      "suites": [
+        {
+          "uuid": "73451e97-4bb2-40bd-b320-070d1ba18b12",
+          "title": "API Test for \"reqres.in",
+          "fullFile": "C:\\Users\\CARNELIAN\\Bootcamp\\Sesi7-API Automation\\Api-Automation-Test\\test\\test-framework-reqresIn.js",
+          "file": "\\test\\test-framework-reqresIn.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Test - Get list users",
+              "fullTitle": "API Test for \"reqres.in Test - Get list users",
+              "timedOut": false,
+              "duration": 371,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const response2 = await request2(BASE_URL2)\n    .get(\"users?page=2\")\n// console.log(response2.statusCode);\n// console.log(response2.body)\n//ASSERTION WITH JSONSCHEMA\nassert2.equal(response2.statusCode, 200);\nassert2.equal(response2.body.page, 2);\nassert2.equal(response2.body.total, 12)\nconst jsonSchema = {\n    \"$schema\": \"http://json-schema.org/draft-04/schema#\",\n    \"type\": \"object\",\n    \"properties\": {\n        \"page\": {\n            \"type\": \"integer\"\n        },\n        \"per_page\": {\n            \"type\": \"integer\"\n        },\n        \"total\": {\n            \"type\": \"integer\"\n        },\n        \"total_pages\": {\n            \"type\": \"integer\"\n        },\n        \"data\": {\n            \"type\": \"array\",\n            \"items\": [\n                {\n                    \"type\": \"object\",\n                    \"properties\": {\n                        \"id\": {\n                            \"type\": \"integer\"\n                        },\n                        \"email\": {\n                            \"type\": \"string\"\n                        },\n                        \"first_name\": {\n                            \"type\": \"string\"\n                        },\n                        \"last_name\": {\n                            \"type\": \"string\"\n                        },\n                        \"avatar\": {\n                            \"type\": \"string\"\n                        }\n                    },\n                    \"required\": [\n                        \"id\",\n                        \"email\",\n                        \"first_name\",\n                        \"last_name\",\n                        \"avatar\"\n                    ]\n                },\n                {\n                    \"type\": \"object\",\n                    \"properties\": {\n                        \"id\": {\n                            \"type\": \"integer\"\n                        },\n                        \"email\": {\n                            \"type\": \"string\"\n                        },\n                        \"first_name\": {\n                            \"type\": \"string\"\n                        },\n                        \"last_name\": {\n                            \"type\": \"string\"\n                        },\n                        \"avatar\": {\n                            \"type\": \"string\"\n                        }\n                    },\n                    \"required\": [\n                        \"id\",\n                        \"email\",\n                        \"first_name\",\n                        \"last_name\",\n                        \"avatar\"\n                    ]\n                },\n                {\n                    \"type\": \"object\",\n                    \"properties\": {\n                        \"id\": {\n                            \"type\": \"integer\"\n                        },\n                        \"email\": {\n                            \"type\": \"string\"\n                        },\n                        \"first_name\": {\n                            \"type\": \"string\"\n                        },\n                        \"last_name\": {\n                            \"type\": \"string\"\n                        },\n                        \"avatar\": {\n                            \"type\": \"string\"\n                        }\n                    },\n                    \"required\": [\n                        \"id\",\n                        \"email\",\n                        \"first_name\",\n                        \"last_name\",\n                        \"avatar\"\n                    ]\n                },\n                {\n                    \"type\": \"object\",\n                    \"properties\": {\n                        \"id\": {\n                            \"type\": \"integer\"\n                        },\n                        \"email\": {\n                            \"type\": \"string\"\n                        },\n                        \"first_name\": {\n                            \"type\": \"string\"\n                        },\n                        \"last_name\": {\n                            \"type\": \"string\"\n                        },\n                        \"avatar\": {\n                            \"type\": \"string\"\n                        }\n                    },\n                    \"required\": [\n                        \"id\",\n                        \"email\",\n                        \"first_name\",\n                        \"last_name\",\n                        \"avatar\"\n                    ]\n                },\n                {\n                    \"type\": \"object\",\n                    \"properties\": {\n                        \"id\": {\n                            \"type\": \"integer\"\n                        },\n                        \"email\": {\n                            \"type\": \"string\"\n                        },\n                        \"first_name\": {\n                            \"type\": \"string\"\n                        },\n                        \"last_name\": {\n                            \"type\": \"string\"\n                        },\n                        \"avatar\": {\n                            \"type\": \"string\"\n                        }\n                    },\n                    \"required\": [\n                        \"id\",\n                        \"email\",\n                        \"first_name\",\n                        \"last_name\",\n                        \"avatar\"\n                    ]\n                },\n                {\n                    \"type\": \"object\",\n                    \"properties\": {\n                        \"id\": {\n                            \"type\": \"integer\"\n                        },\n                        \"email\": {\n                            \"type\": \"string\"\n                        },\n                        \"first_name\": {\n                            \"type\": \"string\"\n                        },\n                        \"last_name\": {\n                            \"type\": \"string\"\n                        },\n                        \"avatar\": {\n                            \"type\": \"string\"\n                        }\n                    },\n                    \"required\": [\n                        \"id\",\n                        \"email\",\n                        \"first_name\",\n                        \"last_name\",\n                        \"avatar\"\n                    ]\n                }\n            ]\n        },\n        \"support\": {\n            \"type\": \"object\",\n            \"properties\": {\n                \"url\": {\n                    \"type\": \"string\"\n                },\n                \"text\": {\n                    \"type\": \"string\"\n                }\n            },\n            \"required\": [\n                \"url\",\n                \"text\"\n            ]\n        }\n    },\n    \"required\": [\n        \"page\",\n        \"per_page\",\n        \"total\",\n        \"total_pages\",\n        \"data\",\n        \"support\"\n    ]\n}\nassert2.jsonSchema(response2.body, jsonSchema)",
+              "err": {},
+              "uuid": "bee8d5ae-3a1f-48bb-864f-c3eda008e3da",
+              "parentUUID": "73451e97-4bb2-40bd-b320-070d1ba18b12",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Test - Post list users",
+              "fullTitle": "API Test for \"reqres.in Test - Post list users",
+              "timedOut": false,
+              "duration": 610,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const bodyPost = {\n    \"name\": \"Naufal\",\n    \"job\": \"leader\"\n};\nconst response2 = await request2(BASE_URL2)\n    .post(\"users?page=2\")\n    .send(bodyPost); // Using the predefined bodyPost\nconsole.log(response2.statusCode);\nconsole.log(response2.body); // Accessing the body from the response\n// ASSERTION WITH JSONSCHEMA\nconst schema = {\n    \"$schema\": \"http://json-schema.org/draft-04/schema#\",\n    \"type\": \"object\",\n    \"properties\": {\n        \"name\": {\n            \"type\": \"string\"\n        },\n        \"job\": {\n            \"type\": \"string\"\n        },\n        \"id\": {\n            \"type\": \"string\"\n        },\n        \"createdAt\": {\n            \"type\": \"string\"\n        }\n    },\n    \"required\": [\n        \"name\",\n        \"job\",\n        \"id\",\n        \"createdAt\"\n    ]\n};\n// Using body from response instead of jsonSchema from body\nassert2.jsonSchema(response2.body, schema);",
+              "err": {},
+              "uuid": "259650a8-a19a-43dc-af94-6b443bfdba22",
+              "parentUUID": "73451e97-4bb2-40bd-b320-070d1ba18b12",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Test - Delete list users",
+              "fullTitle": "API Test for \"reqres.in Test - Delete list users",
+              "timedOut": false,
+              "duration": 482,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const response2 = await request2(BASE_URL2)\n    .delete(\"users/2\")\nconsole.log(response2.statusCode);\nconsole.log(response2.body)\n\n//ASSERTION (empty or just returning a status code))\nit('Test - Delete list users', async () => {\n    const response2 = await request2(BASE_URL2)\n        .delete(\"users/2\");\n    console.log(response2.statusCode);\n    // Ensure that the status code is 204 No Content (or the expected status)\n    assert2.equal(response2.statusCode, 204);\n});\n\n//ASSERTION WITH JSONSCHEMA (if there is a JSON response from the server after performing a DELETE)\nit('Test - Delete list users', async () => {\n    const response2 = await request2(BASE_URL2)\n        .delete(\"users/2\");\n    console.log(response2.statusCode);\n    console.log(response2.body);\n    // JSON Schema that expects a JSON response with a deletion message\n    const jsonSchema = {\n        \"$schema\": \"http://json-schema.org/draft-04/schema#\",\n        \"type\": \"object\",\n        \"properties\": {\n            \"message\": {\n                \"type\": \"string\"\n            },\n            \"deletedAt\": {\n                \"type\": \"string\",\n                \"format\": \"date-time\"\n            }\n        },\n        \"required\": [\n            \"message\",\n            \"deletedAt\"\n        ]\n    };\n    assert2.jsonSchema(response2.body, jsonSchema);\n});",
+              "err": {},
+              "uuid": "3d5433e9-5738-4579-9bc0-8fbcd8588af1",
+              "parentUUID": "73451e97-4bb2-40bd-b320-070d1ba18b12",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Test - Put list users",
+              "fullTitle": "API Test for \"reqres.in Test - Put list users",
+              "timedOut": false,
+              "duration": 498,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const bodyPut = {\n    \"name\": \"Fadil\",\n    \"job\": \"Member\",\n    \"updatedAt\": \"2024-08-24T19:07:28.289Z\"\n};\nconst response2 = await request2(BASE_URL2)\n    .put(\"users/2\")\n    .send(bodyPut); // send bodyPut when doing a PUT request\nconsole.log(response2.statusCode);\nconsole.log(response2.body); // Accessing the response body\n// ASSERTION WITH JSONSCHEMA\nconst schema = {\n    \"$schema\": \"http://json-schema.org/draft-04/schema#\",\n    \"type\": \"object\",\n    \"properties\": {\n        \"name\": {\n            \"type\": \"string\"\n        },\n        \"job\": {\n            \"type\": \"string\"\n        },\n        \"updatedAt\": {\n            \"type\": \"string\"\n        }\n    },\n    \"required\": [\n        \"name\",\n        \"job\",\n        \"updatedAt\"\n    ]\n};\nassert2.jsonSchema(response2.body, schema);",
+              "err": {},
+              "uuid": "11ea0f41-dda1-4dfa-83a0-32eaa2a0571c",
+              "parentUUID": "73451e97-4bb2-40bd-b320-070d1ba18b12",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "bee8d5ae-3a1f-48bb-864f-c3eda008e3da",
+            "259650a8-a19a-43dc-af94-6b443bfdba22",
+            "3d5433e9-5738-4579-9bc0-8fbcd8588af1",
+            "11ea0f41-dda1-4dfa-83a0-32eaa2a0571c"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1961,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "ffe99408-f8cd-47b5-ab7c-b857201e8db5",
+          "title": "API Test for \"restful-API.dev",
+          "fullFile": "C:\\Users\\CARNELIAN\\Bootcamp\\Sesi7-API Automation\\Api-Automation-Test\\test\\test-framework-restful-api.js",
+          "file": "\\test\\test-framework-restful-api.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Test - Get All Objects",
+              "fullTitle": "API Test for \"restful-API.dev Test - Get All Objects",
+              "timedOut": false,
+              "duration": 1269,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const response = await request(BASE_URL)\n.get(\"objects\")\n// console.log(response.statusCode);\n// console.log(response.body)\n\n\n     //ASSERTION \nassert.equal(response.statusCode, 200)\nassert.equal(response.body[0].name, \"Google Pixel 6 Pro\")\nassert.equal(response.body[0].data.color, \"Cloudy White\")\n\n     //SHOULD   \nshould(response.statusCode === 200)\n\n    //EXPECT    \nexpect(response.statusCode).to.equal(200) \njsonSchema = {\n    \"$schema\": \"http://json-schema.org/draft-04/schema#\",\n    \"type\": \"array\",\n    \"items\": [\n      {\n        \"type\": \"object\",\n        \"properties\": {\n          \"id\": {\n            \"type\": \"string\"\n          },\n          \"name\": {\n            \"type\": \"string\"\n          },\n          \"data\": {\n            \"type\": \"object\",\n            \"properties\": {\n              \"color\": {\n                \"type\": \"string\"\n              },\n              \"capacity\": {\n                \"type\": \"string\"\n              }\n            },\n            \"required\": [\n              \"color\",\n              \"capacity\"\n            ]\n          }\n        },\n        \"required\": [\n          \"id\",\n          \"name\",\n          \"data\"\n        ]\n      },\n      {\n        \"type\": \"object\",\n        \"properties\": {\n          \"id\": {\n            \"type\": \"string\"\n          },\n          \"name\": {\n            \"type\": \"string\"\n          },\n          \"data\": {\n            \"type\": \"null\"\n          }\n        },\n        \"required\": [\n          \"id\",\n          \"name\",\n          \"data\"\n        ]\n      },\n      {\n        \"type\": \"object\",\n        \"properties\": {\n          \"id\": {\n            \"type\": \"string\"\n          },\n          \"name\": {\n            \"type\": \"string\"\n          },\n          \"data\": {\n            \"type\": \"object\",\n            \"properties\": {\n              \"color\": {\n                \"type\": \"string\"\n              },\n              \"capacity GB\": {\n                \"type\": \"integer\"\n              }\n            },\n            \"required\": [\n              \"color\",\n              \"capacity GB\"\n            ]\n          }\n        },\n        \"required\": [\n          \"id\",\n          \"name\",\n          \"data\"\n        ]\n      },\n      {\n        \"type\": \"object\",\n        \"properties\": {\n          \"id\": {\n            \"type\": \"string\"\n          },\n          \"name\": {\n            \"type\": \"string\"\n          },\n          \"data\": {\n            \"type\": \"object\",\n            \"properties\": {\n              \"price\": {\n                \"type\": \"number\"\n              },\n              \"color\": {\n                \"type\": \"string\"\n              }\n            },\n            \"required\": [\n              \"price\",\n              \"color\"\n            ]\n          }\n        },\n        \"required\": [\n          \"id\",\n          \"name\",\n          \"data\"\n        ]\n      },\n      {\n        \"type\": \"object\",\n        \"properties\": {\n          \"id\": {\n            \"type\": \"string\"\n          },\n          \"name\": {\n            \"type\": \"string\"\n          },\n          \"data\": {\n            \"type\": \"object\",\n            \"properties\": {\n              \"price\": {\n                \"type\": \"number\"\n              },\n              \"color\": {\n                \"type\": \"string\"\n              }\n            },\n            \"required\": [\n              \"price\",\n              \"color\"\n            ]\n          }\n        },\n        \"required\": [\n          \"id\",\n          \"name\",\n          \"data\"\n        ]\n      },\n      {\n        \"type\": \"object\",\n        \"properties\": {\n          \"id\": {\n            \"type\": \"string\"\n          },\n          \"name\": {\n            \"type\": \"string\"\n          },\n          \"data\": {\n            \"type\": \"object\",\n            \"properties\": {\n              \"generation\": {\n                \"type\": \"string\"\n              },\n              \"price\": {\n                \"type\": \"integer\"\n              }\n            },\n            \"required\": [\n              \"generation\",\n              \"price\"\n            ]\n          }\n        },\n        \"required\": [\n          \"id\",\n          \"name\",\n          \"data\"\n        ]\n      },\n      {\n        \"type\": \"object\",\n        \"properties\": {\n          \"id\": {\n            \"type\": \"string\"\n          },\n          \"name\": {\n            \"type\": \"string\"\n          },\n          \"data\": {\n            \"type\": \"object\",\n            \"properties\": {\n              \"year\": {\n                \"type\": \"integer\"\n              },\n              \"price\": {\n                \"type\": \"number\"\n              },\n              \"CPU model\": {\n                \"type\": \"string\"\n              },\n              \"Hard disk size\": {\n                \"type\": \"string\"\n              }\n            },\n            \"required\": [\n              \"year\",\n              \"price\",\n              \"CPU model\",\n              \"Hard disk size\"\n            ]\n          }\n        },\n        \"required\": [\n          \"id\",\n          \"name\",\n          \"data\"\n        ]\n      },\n      {\n        \"type\": \"object\",\n        \"properties\": {\n          \"id\": {\n            \"type\": \"string\"\n          },\n          \"name\": {\n            \"type\": \"string\"\n          },\n          \"data\": {\n            \"type\": \"object\",\n            \"properties\": {\n              \"Strap Colour\": {\n                \"type\": \"string\"\n              },\n              \"Case Size\": {\n                \"type\": \"string\"\n              }\n            },\n            \"required\": [\n              \"Strap Colour\",\n              \"Case Size\"\n            ]\n          }\n        },\n        \"required\": [\n          \"id\",\n          \"name\",\n          \"data\"\n        ]\n      },\n      {\n        \"type\": \"object\",\n        \"properties\": {\n          \"id\": {\n            \"type\": \"string\"\n          },\n          \"name\": {\n            \"type\": \"string\"\n          },\n          \"data\": {\n            \"type\": \"object\",\n            \"properties\": {\n              \"Color\": {\n                \"type\": \"string\"\n              },\n              \"Description\": {\n                \"type\": \"string\"\n              }\n            },\n            \"required\": [\n              \"Color\",\n              \"Description\"\n            ]\n          }\n        },\n        \"required\": [\n          \"id\",\n          \"name\",\n          \"data\"\n        ]\n      },\n      {\n        \"type\": \"object\",\n        \"properties\": {\n          \"id\": {\n            \"type\": \"string\"\n          },\n          \"name\": {\n            \"type\": \"string\"\n          },\n          \"data\": {\n            \"type\": \"object\",\n            \"properties\": {\n              \"Capacity\": {\n                \"type\": \"string\"\n              },\n              \"Screen size\": {\n                \"type\": \"number\"\n              }\n            },\n            \"required\": [\n              \"Capacity\",\n              \"Screen size\"\n            ]\n          }\n        },\n        \"required\": [\n          \"id\",\n          \"name\",\n          \"data\"\n        ]\n      },\n      {\n        \"type\": \"object\",\n        \"properties\": {\n          \"id\": {\n            \"type\": \"string\"\n          },\n          \"name\": {\n            \"type\": \"string\"\n          },\n          \"data\": {\n            \"type\": \"object\",\n            \"properties\": {\n              \"Capacity\": {\n                \"type\": \"string\"\n              },\n              \"Screen size\": {\n                \"type\": \"number\"\n              }\n            },\n            \"required\": [\n              \"Capacity\",\n              \"Screen size\"\n            ]\n          }\n        },\n        \"required\": [\n          \"id\",\n          \"name\",\n          \"data\"\n        ]\n      },\n      {\n        \"type\": \"object\",\n        \"properties\": {\n          \"id\": {\n            \"type\": \"string\"\n          },\n          \"name\": {\n            \"type\": \"string\"\n          },\n          \"data\": {\n            \"type\": \"object\",\n            \"properties\": {\n              \"Generation\": {\n                \"type\": \"string\"\n              },\n              \"Price\": {\n                \"type\": \"string\"\n              },\n              \"Capacity\": {\n                \"type\": \"string\"\n              }\n            },\n            \"required\": [\n              \"Generation\",\n              \"Price\",\n              \"Capacity\"\n            ]\n          }\n        },\n        \"required\": [\n          \"id\",\n          \"name\",\n          \"data\"\n        ]\n      },\n      {\n        \"type\": \"object\",\n        \"properties\": {\n          \"id\": {\n            \"type\": \"string\"\n          },\n          \"name\": {\n            \"type\": \"string\"\n          },\n          \"data\": {\n            \"type\": \"object\",\n            \"properties\": {\n              \"Generation\": {\n                \"type\": \"string\"\n              },\n              \"Price\": {\n                \"type\": \"string\"\n              },\n              \"Capacity\": {\n                \"type\": \"string\"\n              }\n            },\n            \"required\": [\n              \"Generation\",\n              \"Price\",\n              \"Capacity\"\n            ]\n          }\n        },\n        \"required\": [\n          \"id\",\n          \"name\",\n          \"data\"\n        ]\n      }\n    ]\n  }\n  assert.jsonSchema(response.body, jsonSchema)",
+              "err": {},
+              "uuid": "3e6aa3cc-478d-4cbc-9644-dc3318e93585",
+              "parentUUID": "ffe99408-f8cd-47b5-ab7c-b857201e8db5",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Test - Post Store Objects",
+              "fullTitle": "API Test for \"restful-API.dev Test - Post Store Objects",
+              "timedOut": false,
+              "duration": 380,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const body =             {\n    \"name\": \"Apple MacBook Pro 16\",\n    \"data\": {\n       \"year\": 2019,\n       \"price\": 1849.99,\n       \"CPU model\": \"Intel Core i9\",\n       \"Hard disk size\": \"1 TB\"\n    }\n }\nconst response = await request(BASE_URL)\n.post(\"objects\")\n.send(body)\nconsole.log(response.statusCode);\nconsole.log(response.body)\n\nconst jsonSchema = {\n    \"$schema\": \"http://json-schema.org/draft-04/schema#\",\n    \"type\": \"object\",\n    \"properties\": {\n      \"id\": {\n        \"type\": \"string\"\n      },\n      \"name\": {\n        \"type\": \"string\"\n      },\n      \"data\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"year\": {\n            \"type\": \"integer\"\n          },\n          \"price\": {\n            \"type\": \"number\"\n          },\n          \"CPU model\": {\n            \"type\": \"string\"\n          },\n          \"Hard disk size\": {\n            \"type\": \"string\"\n          }\n        },\n        \"required\": [\n          \"year\",\n          \"price\",\n          \"CPU model\",\n          \"Hard disk size\"\n        ]\n      },\n      \"createdAt\": {\n        \"type\": \"string\"\n      }\n    },\n    \"required\": [\n      \"id\",\n      \"name\",\n      \"data\",\n      \"createdAt\"\n    ]\n  }\n  assert.jsonSchema(response.body, jsonSchema)",
+              "err": {},
+              "uuid": "a50b1d22-b49c-461d-b91b-1916e086d9cf",
+              "parentUUID": "ffe99408-f8cd-47b5-ab7c-b857201e8db5",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "3e6aa3cc-478d-4cbc-9644-dc3318e93585",
+            "a50b1d22-b49c-461d-b91b-1916e086d9cf"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1649,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [
+        "3cfd8619-18b5-4fc7-a4e3-79847aba039d",
+        "08c037e3-144f-400c-80b1-9b0e0881d946"
+      ],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": false,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "10.7.3"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.2.0"
+    }
+  }
+}
